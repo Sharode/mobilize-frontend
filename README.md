@@ -1,14 +1,14 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 
-#How to Run App
+##How to Run App
 
 Git clone the repo.
 Either use yarn add or npm install to install the node modules.
 Yarn start or npm start will run the app locally.
 
 
-#Design
+##Design
 I based my design decision from the popular sites such as eventbrite and meetup. 
 There they had implement a map view integrated with the events listing.
 Ideally, when you hover over the event, the corresponding map marker will be focused on, but 
