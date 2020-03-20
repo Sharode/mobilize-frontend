@@ -78,7 +78,7 @@ export const Img = styled.div`
 
 export const NoEvents = styled.h1`
 	margin:auto;
-	font-size:3rem;
+	font-size:1.75rem;
 	text-align-center;
 
 `;

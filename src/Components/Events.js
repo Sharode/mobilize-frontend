@@ -111,7 +111,7 @@ function Events() {
 				})}
 
 			{loading && <Spinner />}
-			{events !== [] && events && <h1>No Events meet your search criteria. Search again </h1>}
+			{events !== [] && events && <NoEvents>No Events meet your search criteria. Search again </NoEvents>}
 		</EventContainer>
 	);
 }
