@@ -75,3 +75,10 @@ export const Img = styled.div`
 	background-size: cover;
 	background-repeat: no-repeat;
 `;
+
+export const NoEvents = styled.h1`
+	margin:auto;
+	font-size:3rem;
+	text-align-center;
+
+`;

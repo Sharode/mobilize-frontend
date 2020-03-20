@@ -1,5 +1,5 @@
-import { useEffect, useState, useCallback } from 'react';
-import { useSetEventsContext, useFilterContext, useSetFilterContext } from '../Contexts/data';
+import { useEffect, useState } from 'react';
+import { useSetEventsContext, useFilterContext } from '../Contexts/data';
 import { filterChanged } from '../utils/equal';
 import usePrevious from '../Hooks/usePrevious';
 import axios from 'axios';
@@ -11,7 +11,6 @@ export default function useEventSearch(pageNumber) {
 
 	const setEvents = useSetEventsContext();
 	const filters = useFilterContext();
-	const setFilters = useSetFilterContext();
 
 	let { event_types, is_virtual } = filters;
 
@@ -36,16 +35,14 @@ export default function useEventSearch(pageNumber) {
 					})
 					.catch((e) => {
 						setError(e);
-						console.log(e);
 					});
 			}
 		},
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		[ filters ]
 	);
 	useEffect(
 		() => {
-			// need to reset the page if it was filtered  *****
-			// if (isfiltered) pageNumber = 1;
 			setLoading(true);
 			setError(false);
 			axios({
@@ -54,8 +51,6 @@ export default function useEventSearch(pageNumber) {
 				params: { page: pageNumber, event_types, is_virtual }
 			})
 				.then(({ data }) => {
-					// set events based on if the page has been filtered
-
 					setEvents((prev) => {
 						return [ ...prev, data ];
 					});
@@ -65,9 +60,9 @@ export default function useEventSearch(pageNumber) {
 				})
 				.catch((e) => {
 					setError(e);
-					console.log(e);
 				});
 		},
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		[ pageNumber ]
 	);
 	return { loading, error, hasMore };

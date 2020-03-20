@@ -1,6 +1,6 @@
 import React, { useState, useRef, useCallback } from 'react';
 import { useEventsContext, useSetEventContext } from '../Contexts/data';
-import { EventContainer, EventCard, EventDetails, Img } from '../Elements';
+import { EventContainer, EventCard, EventDetails, Img, NoEvents } from '../Elements';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import Spinner from './Spinner';
@@ -43,7 +43,7 @@ function Events() {
 					return obj.data.map((item, index) => {
 						if (item.length === index + 1) {
 							return (
-								<EventCard ref={lastEventElement}>
+								<EventCard key={index} ref={lastEventElement}>
 									<div>
 										<Img src={item.featured_image_url} alt="image" />
 									</div>
@@ -58,7 +58,7 @@ function Events() {
 											{item.title}
 										</Link>
 
-										<p>
+										<div>
 											{item.location === null ? (
 												<span> Virtual </span>
 											) : (
@@ -69,13 +69,13 @@ function Events() {
 													<span>{item.location.region}</span>
 												</p>
 											)}
-										</p>
+										</div>
 									</EventDetails>
 								</EventCard>
 							);
 						} else {
 							return (
-								<EventCard ref={lastEventElement}>
+								<EventCard key={index} ref={lastEventElement}>
 									<div>
 										<Img src={item.featured_image_url} alt="image" url={item.featured_image_url} />
 									</div>
@@ -91,7 +91,7 @@ function Events() {
 											{item.title}
 										</Link>
 
-										<p>
+										<div>
 											{item.location === null ? (
 												<span> Virtual </span>
 											) : (
@@ -102,7 +102,7 @@ function Events() {
 													<span>{item.location.region}</span>
 												</p>
 											)}
-										</p>
+										</div>
 									</EventDetails>
 								</EventCard>
 							);
@@ -111,6 +111,7 @@ function Events() {
 				})}
 
 			{loading && <Spinner />}
+			{events !== [] && events && <h1>No Events meet your search criteria. Search again </h1>}
 		</EventContainer>
 	);
 }

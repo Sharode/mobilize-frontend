@@ -14,7 +14,7 @@ function Event() {
 				<EventPage>
 					<h1>{event.title}</h1>
 					<InnerDetails>
-						<img src={`${event.featured_image_url}`} alt="Image" />
+						<img src={`${event.featured_image_url}`} alt={event.title} />
 						<div>
 							<h2>{event.event_type}</h2>
 							<p>{event.summary}</p>
