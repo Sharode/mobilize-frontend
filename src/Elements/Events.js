@@ -4,11 +4,12 @@ export const Wrapper = styled.section`
 	display: flex;
 	flex-direction: column;
 	width: 67%;
-	margin: 15px;
+	margin: 15px 0 15px 15px;
 `;
 
 export const EventContainer = styled.section`
 	background-color: #f8f7fa;
+	margin-top: 10px;
 	height: 100vh;
 	overflow-y: scroll;
 	overflow-x: hidden;
@@ -55,6 +56,13 @@ export const EventDetails = styled.div`
 		font-size: 0.85rem;
 		font-weight: 400;
 		color: #6f7287;
+		&.location {
+			color: yellow;
+		}
+	}
+	> span {
+		margin-left: 2px;
+		margin-right: 2px;
 	}
 `;
 

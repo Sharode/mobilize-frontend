@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-export const Container = styled.section`display: flex;`;
+export const Container = styled.section`
+	display: flex;
+	background-color: #f8f7fa;
+	margin-bottom: 10px;
+`;
 export const Select = styled.select`
  appearance-none w-full   border-gray-400 hover:border-gray-500 px-4  shadow   
 

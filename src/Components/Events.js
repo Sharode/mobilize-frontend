@@ -20,7 +20,6 @@ function Events() {
 
 	const lastEventElement = useCallback(
 		(node) => {
-			console.log(loading);
 			if (loading) return;
 			if (observer.current) observer.current.disconnect();
 			observer.current = new IntersectionObserver((entries) => {
@@ -60,10 +59,16 @@ function Events() {
 										</Link>
 
 										<p>
-											{item.location === null ? 'Virtual' : 'Not virtual'}
-											{/* {item.location && item.location.venue} • {' '}
-											{item.location && item.location.locality},
-											{item.location && item.location.region} */}
+											{item.location === null ? (
+												<span> Virtual </span>
+											) : (
+												<p>
+													<span>{item.location.venue}</span>
+													<span>{item.location.locality} </span>
+
+													<span>{item.location.region}</span>
+												</p>
+											)}
 										</p>
 									</EventDetails>
 								</EventCard>
@@ -87,10 +92,16 @@ function Events() {
 										</Link>
 
 										<p>
-											{item.location === null ? 'Virtual' : 'Not virtual'}
-											{/* {item.location && item.location.venue} • {' '}
-											{item.location && item.location.locality},
-											{item.location && item.location.region} */}
+											{item.location === null ? (
+												<span> Virtual </span>
+											) : (
+												<p>
+													<span>{item.location.venue}</span>
+													<span>{item.location.locality} </span>
+
+													<span>{item.location.region}</span>
+												</p>
+											)}
 										</p>
 									</EventDetails>
 								</EventCard>

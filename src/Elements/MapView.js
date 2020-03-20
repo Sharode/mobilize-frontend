@@ -2,5 +2,5 @@ import styled from 'styled-components';
 
 export const MapView = styled.section`
 	width: 33%;
-	height: 90vh;
+	height: 100vh;
 `;
