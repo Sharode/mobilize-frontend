@@ -73,8 +73,8 @@ export const Consumer = ({ children }) => {
 	});
 
 	return (
-		<DataContext.Provider value={events}>
-			<SetDataContext.Provider value={setEvents}>
+		<EventsContext.Provider value={events}>
+			<SetEventsContext.Provider value={setEvents}>
 				<EventContext.Provider value={event}>
 					<SetEventContext.Provider value={setEvent}>
 						<FilterContext.Provider value={filters}>
@@ -82,7 +82,7 @@ export const Consumer = ({ children }) => {
 						</FilterContext.Provider>
 					</SetEventContext.Provider>
 				</EventContext.Provider>
-			</SetDataContext.Provider>
-		</DataContext.Provider>
+			</SetEventsContext.Provider>
+		</EventsContext.Provider>
 	);
 };
