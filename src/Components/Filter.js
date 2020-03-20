@@ -1,6 +1,6 @@
 import React from 'react';
-import { Container, Select, Input, Label, Btn, Title } from '../Elements';
-import { useSetFilterContext, useFilterContext } from '../Contexts/data';
+import { Container, Select, Label, Btn, Title } from '../Elements';
+import { useSetFilterContext, useFilterContext, eventTypes } from '../Contexts/data';
 
 function Filter() {
 	const filters = useFilterContext();
@@ -23,18 +23,18 @@ function Filter() {
 			<Title>Filters</Title>
 			<Label> Event Type</Label>
 			<Select name="event_types" value={filters.event_types} onChange={(e) => handleEventChange(e)}>
-				<option value="Canvass">Canvass</option>
-				<option value="'PHONE_BANK'">Phone Book</option>
-				<option value="TEXT_BANK">Text Bank</option>
-				<option value="meeting">Meeting</option>
-				<option value="">All</option>
+				{eventTypes.map((event) => (
+					<option key={event} value={event === 'All' ? null : event.toLowerCase()}>
+						{event.toLowerCase()}
+					</option>
+				))}
 			</Select>
 			<Label> Virtual</Label>
 
 			<Select name="is_virtual" value={filters.is_virtual} onChange={(e) => handleEventChange(e)}>
+				<option value="">Both</option>
 				<option value="yes">Yes</option>
 				<option value="no">No</option>
-				<option value="">Both</option>
 			</Select>
 			<Btn onClick={() => setFilters(reset)}> Reset</Btn>
 		</Container>

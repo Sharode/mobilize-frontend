@@ -41,6 +41,7 @@ export const useSetFilterContext = () => {
 };
 
 export const eventTypes = [
+	'All',
 	'CANVASS',
 	'PHONE_BANK',
 	'TEXT_BANK',

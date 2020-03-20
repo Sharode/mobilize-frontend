@@ -31,6 +31,7 @@ export const Select = styled.select`
     }
 	option {
 		color: #000;
+		text-transform: capitalize;
 	}
 `;
 

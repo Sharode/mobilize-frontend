@@ -1,4 +1,4 @@
 export * from './MainContainer';
 export * from './MapView';
-export * from './EventsWrapper';
+export * from './Events';
 export * from './Filter';
